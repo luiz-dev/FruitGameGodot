@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://jogo.gd" type="Script" id=1]
+[ext_resource path="res://chao.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cesta.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Label.gd" type="Script" id=4]
+[ext_resource path="res://m6x11.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="grupo chao" type="Node2D" parent="."]
+
+[node name="chao" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 4.5, 65 )
+
+[node name="chao2" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 13.5, 65 )
+
+[node name="chao3" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 22.5, 65 )
+
+[node name="chao4" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 31.5, 65 )
+
+[node name="chao5" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 40.5, 65 )
+
+[node name="chao6" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 49.5, 65 )
+
+[node name="chao7" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 58.5, 65 )
+
+[node name="chao8" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 67.5, 65 )
+
+[node name="chao9" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 76.5, 65 )
+
+[node name="chao10" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 85.5, 65 )
+
+[node name="chao11" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 94.5, 65 )
+
+[node name="chao12" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 103.5, 65 )
+
+[node name="chao13" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 112.5, 65 )
+
+[node name="chao14" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 121.5, 65 )
+
+[node name="chao15" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 130.5, 65 )
+
+[node name="chao16" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( 132.5, 42 )
+scale = Vector2( 1, 12 )
+
+[node name="chao17" parent="grupo chao" instance=ExtResource( 2 )]
+position = Vector2( -4.5, 42 )
+scale = Vector2( 1, 12 )
+
+[node name="cesta" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, 22 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 34.0
+margin_right = 17.0
+margin_bottom = 54.0
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 113.0
+margin_top = 33.0
+margin_right = 125.0
+margin_bottom = 53.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 128.0
+margin_bottom = 19.0
+theme = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+
+[connection signal="ativa_pontos" from="cesta" to="Label" method="_on_cesta_ativa_pontos"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="button_down" from="Button" to="cesta" method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="cesta" method="_on_Button_button_up"]
+[connection signal="button_down" from="Button2" to="cesta" method="_on_Button2_button_down"]
+[connection signal="button_up" from="Button2" to="cesta" method="_on_Button2_button_up"]
